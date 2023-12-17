@@ -20,7 +20,6 @@
 
 ## EXAMPLE
 ```c
-#include ""
 #include <latch>
 #include <thread>
 
