@@ -11,7 +11,7 @@ namespace TSUtil
 #ifdef __linux__
 		return (threadId_t)syscall(SYS_gettid);
 #else // __linux__
-		// ·ÎÄÃ¿¡¼­ ÇØµµµÉµí?
+		// ë¡œì»¬ì—ì„œ í•´ë„ë ë“¯?
 		std::thread::id id = std::this_thread::get_id();
 		return *(threadId_t*)&id;
 #endif // __linux__
