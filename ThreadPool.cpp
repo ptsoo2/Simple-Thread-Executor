@@ -9,7 +9,7 @@ namespace TSUtil
 
 	void stThreadWaitState_t::notify()
 	{
-		// isWait ÀÌ ÄÑÁ®ÀÖ´Â »óÅÂ¶ó¸é ²ô°í, notify
+		// isWait ì´ ì¼œì ¸ìˆëŠ” ìƒíƒœë¼ë©´ ë„ê³ , notify
 		bool expected = true;
 		if (isWait_.compare_exchange_strong(expected, false) == true)
 		{
@@ -26,7 +26,7 @@ namespace TSUtil
 			cond_.wait_for(grab, std::chrono::milliseconds(deadlineMilliSec_),
 				[this]()
 				{
-					// isWait ÀÌ ²¨Á®ÀÖ´Â »óÅÂ¶ó¸é Å»Ãâ
+					// isWait ì´ êº¼ì ¸ìˆëŠ” ìƒíƒœë¼ë©´ íƒˆì¶œ
 					bool expected = false;
 					return isWait_.compare_exchange_strong(expected, false) == true;
 				}
@@ -102,7 +102,7 @@ namespace TSUtil
 
 	void CThreadExecutor::CRunnable::run()
 	{
-		// swap ÇØ¼­ Ã³¸®ÇÒ ÇÊ¿ä°¡ ¾ø´Ù¸é wait
+		// swap í•´ì„œ ì²˜ë¦¬í•  í•„ìš”ê°€ ì—†ë‹¤ë©´ wait
 		if (queTask_.swap() == false)
 		{
 			waitState_.wait();
@@ -131,11 +131,11 @@ namespace TSUtil
 		if (threadPool_.isRun() == true)
 			throw std::runtime_error("Already initialized");
 
-		// runnable »ı¼º
+		// runnable ìƒì„±
 		for (size_t i = 0; i < threadCount; ++i)
 			lstRunnable_.emplace_back(deadlineMilliSec);
 
-		// thread pool »ı¼º
+		// thread pool ìƒì„±
 		threadPool_.init(threadCount,
 			[this](size_t tid)
 			{
@@ -170,7 +170,7 @@ namespace TSUtil
 		if (threadPool_.isRun() == false)
 			throw std::runtime_error("Not running");
 
-		// round robin À¸·Î runnable À» ¼±ÅÃÇØ¼­ post
+		// round robin ìœ¼ë¡œ runnable ì„ ì„ íƒí•´ì„œ post
 		postAt(_gentid(), std::forward<fnTask_t>(task));
 	}
 
