@@ -9,7 +9,7 @@ namespace TSUtil
 
 	void stThreadWaitState_t::notify()
 	{
-		// isWait 이 켜져있는 상태라면 끄고, notify
+		// isWait 이 켜져있는 상태라면 끄고, notify 
 		bool expected = true;
 		if (isWait_.compare_exchange_strong(expected, false) == true)
 		{
