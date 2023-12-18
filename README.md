@@ -7,7 +7,7 @@
 ### Content
 - ThreadPool 을 베이스로 삼음
 - 각 Thread 마다 Task Queue 를 가지며 긴 시간이 소요되는 비동기 로직을 스레드에서 처리
-- MPSCQueue (https://github.com/xotn1270/MPSCQueue) 를 사용해서 Task 를 큐잉해서 처리
+- MPSCQueue (https://github.com/ptsoo2/MPSCQueue) 를 사용해서 Task 를 큐잉해서 처리
 - stThreadWaitState_t
   - Thread 가 처리할 일이 없어서 놀고있는 경우의 대기 용도
 - CThreadExecutor::postAt
