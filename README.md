@@ -15,7 +15,7 @@
 - CThreadExecutor::post
   - Round Robin 으로 결정된 Thread 로 Task 를 던짐.
 - CThreadExecutor::flush
-  - stop 이후에 잔존한 Task 가 존재할 수 있음. 잔존한 Task 를 모두 실행해야하는 경우 option 하게 사용
+  - stop 이후에 잔존한 Task 가 존재할 수 있음. 잔존한 Task 를 모두 실행해야하는 경우 optional 하게 사용
 
 ### TODO
 - 
